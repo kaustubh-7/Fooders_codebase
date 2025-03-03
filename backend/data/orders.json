@@ -1,0 +1,22 @@
+[
+    {
+        "items": [
+            {
+                "id": "m2",
+                "name": "Margherita Pizza",
+                "price": "12.99",
+                "description": "A classic pizza with fresh mozzarella, tomatoes, and basil on a thin and crispy crust.",
+                "image": "images/margherita-pizza.jpg",
+                "quantity": 1
+            }
+        ],
+        "customer": {
+            "name": "Kaustubh Bajpai",
+            "email": "kaustubhbajpai718@gmail.com",
+            "street": "J-128, Pallavpuram Phase 1",
+            "postal-code": "250110",
+            "city": "Meerut"
+        },
+        "id": "94.60006724559355"
+    }
+]
