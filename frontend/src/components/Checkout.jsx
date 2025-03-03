@@ -25,7 +25,7 @@ export default function Checkout() {
         error,
         sendRequest,
         clearData
-    } = useHttp('https://fooders-backend-lqyp.onrender.com', postConfig)
+    } = useHttp('https://fooders-backend-lqyp.onrender.com/orders', postConfig)
 
 
     const cartTotal = cartCtx.items.reduce(
