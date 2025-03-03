@@ -7,12 +7,14 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser'; //Middleware used to parse incoming JSON requests.
 import express from 'express'; //express: Web framework for Node.js to create APIs and handle HTTP requests.
 import Order from './model/orders.js'; // Import Mongoose Order model
+import path from 'node:path';
+
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
-app.use(express.static('public'));
+app.use(express.static(path.resolve('./public.images')));
 
 app.use((req, res, next) => { //Cross-Origin Resource Sharing Middleware.
   res.setHeader('Access-Control-Allow-Origin', '*'); //Access-Control-Allow-Origin: '*' means any website can access your API.
