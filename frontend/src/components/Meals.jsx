@@ -9,7 +9,7 @@ export default function Meals() {
     const {data: loadedMeals, 
         isLoading, 
         error,
-     } = useHttp('https://fooders-backend-lqyp.onrender.com/meals', requestConfig , []);
+     } = useHttp('https://fooders-backend-lqyp.onrender.com/public/images', requestConfig , []);
 
     if (isLoading){
         return <p className='center'>Fetching meals...</p>
