@@ -12,7 +12,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
-app.use(express.static('public'));
+app.use(express.static('./public.images'));
 
 app.use((req, res, next) => { //Cross-Origin Resource Sharing Middleware.
   res.setHeader('Access-Control-Allow-Origin', '*'); //Access-Control-Allow-Origin: '*' means any website can access your API.
