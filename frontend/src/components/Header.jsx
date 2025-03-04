@@ -24,7 +24,7 @@ export default function Header(){
                 <h1>FOODERS</h1>
             </div>
             <nav> {/*The <nav> element in HTML is used to define a section of a document intended for navigation links. */}
-                <Button textOnly onClick={handleShowCart}>Cart ({totalCartItems}) </Button>
+                <Button textOnly onClick={handleShowCart} isCart={true}>Cart ({totalCartItems}) </Button>
             </nav>
         </header>
     );
