@@ -3,6 +3,9 @@ import { currencyFormatter } from "../util/formatCurrency.js";
 import Button from './UI/Buttons.jsx';
 import CartContext from "../store/CartContext.jsx";
 
+import { motion } from 'framer-motion';
+
+
 export default function MealItem({meal}){
     const {addItem}= useContext(CartContext);
 
@@ -10,7 +13,19 @@ export default function MealItem({meal}){
         addItem(meal);
     }
 
-    return <li className="meal-item">
+    return <motion.ul>
+    <motion.li 
+    className="meal-item"
+    whileHover={{
+        scale: 1.05,
+        backgroundColor: 'black',
+        color: 'white',
+        transition: {
+          type: 'spring',
+          stiffness: 300,
+          damping: 10,
+        },
+      }}>
         <article>
             <img src={`https://fooders-backend-lqyp.onrender.com/${meal.image}`} alt={meal.name} />
             <div>
@@ -22,5 +37,6 @@ export default function MealItem({meal}){
                 <Button onClick={addMealToCart}> Add to Cart</Button>
             </p>
         </article>
-    </li>
+    </motion.li>
+    </motion.ul>
 }
