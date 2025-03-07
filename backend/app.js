@@ -8,19 +8,26 @@ import bodyParser from 'body-parser'; //Middleware used to parse incoming JSON r
 import express from 'express'; //express: Web framework for Node.js to create APIs and handle HTTP requests.
 import Order from './model/orders.js'; // Import Mongoose Order model
 import path from 'node:path';
+import User from './model/users.js';
+import cors from 'cors';
+
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
-app.use(express.static(path.resolve('./public')));
+app.use(express.static(path.resolve('/public')));
 
-app.use((req, res, next) => { //Cross-Origin Resource Sharing Middleware.
-  res.setHeader('Access-Control-Allow-Origin', '*'); //Access-Control-Allow-Origin: '*' means any website can access your API.
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST'); //This tells the browser which request types are allowed.
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type'); //Specifies which headers can be included in the request.
-  next();
-});
+// app.use((req, res, next) => { //Cross-Origin Resource Sharing Middleware.
+//   res.setHeader('Access-Control-Allow-Origin', '*'); //Access-Control-Allow-Origin: '*' means any website can access your API.
+//   res.setHeader('Access-Control-Allow-Methods', 'GET, POST'); //This tells the browser which request types are allowed.
+//   res.setHeader('Access-Control-Allow-Headers', 'Content-Type'); //Specifies which headers can be included in the request.
+//   next();
+// });
+
+
+
+app.use(express.json());
 
 app.get('/meals', async (req, res) => {
   const meals = await fs.readFile('./data/available-meals.json', 'utf8');
@@ -64,7 +71,7 @@ app.post('/orders', async (req, res) => {
 });
 
 app.post('/signup', async (req, res) => {
-  const { email, fullName, phNumber, address } = req.body;
+  const { email, fullName, phNumber, address, password } = req.body;
 
     if(
       email === null ||
@@ -78,18 +85,30 @@ app.post('/signup', async (req, res) => {
   ){
     return res.status(400).json({
       message:
-        'Missing data: Email, name, street, postal code or city is missing.',
+        'Missing data: Email, name, phNumber, address is missing.',
     });
   }
+
+  console.log(req.body);
 
   const newUser = await User.create({
     fullName,
     email,
     phNumber,
     address,
+    password,
   });
   res.status(201).json({ message: 'User Registered!' });
 });
+
+app.use(cors({
+  origin: 'http://localhost:5173', // Allow requests from your frontend
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type'],
+  credentials: true // If using cookies/auth
+}));
+
+app.options('*', cors()); // Ensure preflight requests are handled properly
 
 app.use((req, res) => {
   if (req.method === 'OPTIONS') { //OPTIONS is a special type of HTTP request sent by browsers before making certain API requests (like POST, PUT, or DELETE). This is called a preflight request in CORS (Cross-Origin Resource Sharing).
@@ -104,3 +123,4 @@ mongoose.connect(process.env.MONGO_URL)
   .catch(err => console.log("MongoDB Connection Error:", err));
 
 app.listen(PORT);
+
