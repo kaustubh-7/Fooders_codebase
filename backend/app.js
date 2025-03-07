@@ -63,6 +63,34 @@ app.post('/orders', async (req, res) => {
   res.status(201).json({ message: 'Order created!' });
 });
 
+app.post('/signup', async (req, res) => {
+  const { email, fullName, phNumber, address } = req.body;
+
+    if(
+      email === null ||
+    !email.includes('@') ||
+    fullName === null ||
+    fullName.trim() === '' ||
+    phNumber === null ||
+    phNumber.trim() === '' ||
+    address === null ||
+    address.trim() === ''
+  ){
+    return res.status(400).json({
+      message:
+        'Missing data: Email, name, street, postal code or city is missing.',
+    });
+  }
+
+  const newUser = await User.create({
+    fullName,
+    email,
+    phNumber,
+    address,
+  });
+  res.status(201).json({ message: 'User Registered!' });
+});
+
 app.use((req, res) => {
   if (req.method === 'OPTIONS') { //OPTIONS is a special type of HTTP request sent by browsers before making certain API requests (like POST, PUT, or DELETE). This is called a preflight request in CORS (Cross-Origin Resource Sharing).
     return res.sendStatus(200);
