@@ -20,7 +20,7 @@ function LoginModal() {
               error,
               sendRequest,
               clearData
-          } = useHttp('http://localhost:3000/login', postConfig)
+          } = useHttp('https://fooders-backend-lccf.onrender.com/login', postConfig)
 
   
 
