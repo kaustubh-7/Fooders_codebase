@@ -25,7 +25,7 @@ export default function Checkout() {
         error,
         sendRequest,
         clearData
-    } = useHttp('http://localhost:3000/orders', postConfig)
+    } = useHttp('https://fooders-backend-lccf.onrender.com/orders', postConfig)
 
 
     const cartTotal = cartCtx.items.reduce(
@@ -46,7 +46,7 @@ export default function Checkout() {
     useEffect(() => {
         async function fetchUserData() {
             try {
-                const response = await fetch("http://localhost:3000/user/profile", {
+                const response = await fetch("https://fooders-backend-lccf.onrender.com/user/profile", {
                     method: "GET",
                     credentials: "include",
                 });
