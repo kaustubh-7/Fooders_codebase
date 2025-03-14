@@ -29,7 +29,7 @@ app.use(express.static(path.resolve('./public')));
 // });
 
 app.use(cors({
-  origin: "http://localhost:5173", //  Allow requests from ANY origin
+  origin: "*", //  Allow requests from ANY origin
   methods: ['GET', 'POST'],
   allowedHeaders: ['Content-Type'],
   credentials: true // If using cookies/auth
