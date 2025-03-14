@@ -22,7 +22,7 @@ export default function Cart() {
     }
 
     async function handleGoToCheckout() {
-        const res = await fetch("http://localhost:3000/auth/check", {
+        const res = await fetch("https://fooders-backend-lccf.onrender.com/auth/check", {
             method: "GET",
             credentials: "include",
         });
