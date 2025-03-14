@@ -17,7 +17,7 @@ export default function Signup({ onClose }) {
             error,
             sendRequest,
             clearData
-        } = useHttp('http://localhost:3000/signup', postConfig)
+        } = useHttp('https://fooders-backend-lccf.onrender.com/signup', postConfig)
     
 
     async function signupAction(prevState, formData) {
