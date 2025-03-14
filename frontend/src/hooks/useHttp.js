@@ -28,16 +28,17 @@ export default function useHttp(url, config, initialData) {
             try {
                 const resData = await sendHttpRequest(url, { ...config, body: data }); {/*Yes, that's correct! When you send a fetch request inside an async function, it initially returns a Promise. However, since you're using async/await, JavaScript will automatically wait for the Promise to resolve and return the resolved data, making the asynchronous code look more synchronous. Resolve the Promise from response.json().*/ }
                 setData(resData);
+                return (resData);
             } catch (error) {
                 setError(error.message || 'Something went wrong');
             }
-            setIsLoading(false);
+            finally {
+                setIsLoading(false);
+            }
         }, [url, config]);
 
     useEffect(() => {
-        console.log('hi');
         if ((config && (config.method === 'GET' || !config.method)) || !config) {
-            console.log('hiiii');
             sendRequest();
         }
     }, [sendRequest, config]);

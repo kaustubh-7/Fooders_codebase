@@ -11,13 +11,6 @@ const orderSchema = new mongoose.Schema({
             quantity: { type: Number, required: true, min: 1 }
         }
     ],
-    customer: {
-        name: { type: String, required: true },
-        email: { type: String, required: true, match: /.+\@.+\..+/ }, // Simple email validation
-        street: { type: String, required: true },
-        postalCode: { type: String, required: true },
-        city: { type: String, required: true }
-    },
     orderId: { type: String, required: true, unique: true }, // Unique order ID
    
 }, { timestamps: true });

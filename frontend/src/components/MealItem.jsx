@@ -3,6 +3,9 @@ import { currencyFormatter } from "../util/formatCurrency.js";
 import Button from './UI/Buttons.jsx';
 import CartContext from "../store/CartContext.jsx";
 
+import { motion } from 'framer-motion';
+
+
 export default function MealItem({meal}){
     const {addItem}= useContext(CartContext);
 
@@ -10,7 +13,19 @@ export default function MealItem({meal}){
         addItem(meal);
     }
 
-    return <li className="meal-item">
+    return <motion.ul>
+    <motion.li 
+    className="meal-item"
+    whileHover={{
+        scale: 1.05,
+        backgroundColor: '#000000',
+        color: '#FFFFFF',
+        transition: {
+          type: 'spring',
+          stiffness: 300,
+          damping: 9,
+        },
+      }} >
         <article>
             <img src={`http://localhost:3000/${meal.image}`} alt={meal.name} />
             <div>
@@ -22,5 +37,6 @@ export default function MealItem({meal}){
                 <Button onClick={addMealToCart}> Add to Cart</Button>
             </p>
         </article>
-    </li>
+    </motion.li>
+    </motion.ul>
 }

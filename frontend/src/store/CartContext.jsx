@@ -89,7 +89,6 @@ export function CartContextProvider({ children }) {
         removeItem,
         clearCart
     }
-    console.log(cartContextValue);
     return <CartContext value={cartContextValue}> {/*in react 19 you can directly use context (<CartContext>) without using .Provider(<CartContext.Provider>). */}
         {children}
     </CartContext>

@@ -4,17 +4,28 @@ import { CartContextProvider } from './store/CartContext.jsx';
 import { UserProgressContextProvider } from './store/UserProgressContext.jsx';
 import Cart from './components/Cart.jsx';
 import Checkout from './components/Checkout.jsx';
+import { Routes, Route } from "react-router-dom";
+import Signup from './components/Signup.jsx';
+
+import Home from './components/Home.jsx';
+
 
 function App() {
-  return (
+  return (<>
     <UserProgressContextProvider>
       <CartContextProvider>
-        <Header />
-        <Meals />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/meals" element={<Meals />} />
+        </Routes>
+        {/* <Header /> */}
+        {/*<Meals />*/}
         <Cart />
         <Checkout />
       </CartContextProvider>
     </UserProgressContextProvider>
+  </>
   );
 }
 
