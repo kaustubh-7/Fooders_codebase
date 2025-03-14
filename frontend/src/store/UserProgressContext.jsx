@@ -56,7 +56,7 @@ export function UserProgressContextProvider({children}){
     }
 
     async function logoutUser() {
-        await fetch("http://localhost:3000/logout", { method: "POST", credentials: "include" });
+        await fetch("https://fooders-backend-lccf.onrender.com/logout", { method: "POST", credentials: "include" });
         setIsAuthenticated(false);
     }
 
