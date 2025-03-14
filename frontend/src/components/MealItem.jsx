@@ -27,7 +27,7 @@ export default function MealItem({meal}){
         },
       }} >
         <article>
-            <img src={`http://localhost:3000/${meal.image}`} alt={meal.name} />
+            <img src={`https://fooders-backend-lccf.onrender.com/${meal.image}`} alt={meal.name} />
             <div>
              <h3>{meal.name}</h3>
              <p className="meal-item-price">{currencyFormatter.format(meal.price)}</p> {/* the format method is used to format a number according to the settings specified when creating the NumberFormat object */}
