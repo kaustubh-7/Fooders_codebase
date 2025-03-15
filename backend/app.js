@@ -65,7 +65,7 @@ app.post('/signup', async (req, res) => {
   const { Signupemail, fullName, phNumber, address, Signuppassword } = req.body;
 
     if(
-      email === null ||
+      Signupemail === null ||
     !Signupemail.includes('@') ||
     fullName === null ||
     fullName.trim() === '' ||
