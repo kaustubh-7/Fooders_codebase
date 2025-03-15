@@ -62,11 +62,11 @@ app.post('/orders', async (req, res) => {
 });
 
 app.post('/signup', async (req, res) => {
-  const { email, fullName, phNumber, address, password } = req.body;
+  const { Signupemail, fullName, phNumber, address, Signuppassword } = req.body;
 
     if(
       email === null ||
-    !email.includes('@') ||
+    !Signupemail.includes('@') ||
     fullName === null ||
     fullName.trim() === '' ||
     phNumber === null ||
@@ -87,11 +87,10 @@ app.post('/signup', async (req, res) => {
     email,
     phNumber,
     address,
-    password,
+    password:Signuppassword,
   });
   res.status(201).json({ message: 'User Registered!', redirect: '/' });
 });
-
 app.post('/login', async (req, res) => {
   try {
       const { email, password } = req.body;
