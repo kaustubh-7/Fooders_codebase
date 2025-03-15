@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { UserProgressContext } from "../store/UserProgressContext.jsx";
 
 
-const postConfig = { method: "POST", headers: { "Content-Type": "application/json" } }
+const postConfig = { method: "POST", headers: { "Content-Type": "application/json" }, credentials: "include" }
 
 
 export default function Signup({ onClose }) {
