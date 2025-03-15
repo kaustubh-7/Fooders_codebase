@@ -136,7 +136,7 @@ app.post('/logout', (req, res) => {
     domain: "fooders-backend-lccf.onrender.com", // Match backend domain
     path: "/"  // Ensure it's deleted from all routes
   });
-
+}
 
 
 app.use((req, res) => {
