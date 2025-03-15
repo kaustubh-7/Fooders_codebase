@@ -84,10 +84,10 @@ app.post('/signup', async (req, res) => {
 
   const newUser = await User.create({
     fullName,
-    email,
+    email: Signupemail,
     phNumber,
     address,
-    password:Signuppassword,
+    password: Signuppassword,
   });
   res.status(201).json({ message: 'User Registered!', redirect: '/' });
 });
