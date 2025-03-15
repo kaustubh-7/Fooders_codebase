@@ -29,7 +29,7 @@ app.use(express.static(path.resolve('./public')));
 // });
 
 app.use(cors({
-  origin: "https://fooders-codebase.onrender.com", //  Allow requests from ANY origin
+  origin: "http://localhost:5173", //  Allow requests from ANY origin
   methods: ['GET', 'POST'],
   allowedHeaders: ['Content-Type'],
   credentials: true // If using cookies/auth
