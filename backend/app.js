@@ -136,8 +136,7 @@ app.post('/logout', (req, res) => {
     domain: "fooders-backend-lccf.onrender.com", // Match backend domain
     path: "/"  // Ensure it's deleted from all routes
   });
-}
-
+});
 
 app.use((req, res) => {
   if (req.method === 'OPTIONS') { //OPTIONS is a special type of HTTP request sent by browsers before making certain API requests (like POST, PUT, or DELETE). This is called a preflight request in CORS (Cross-Origin Resource Sharing).
