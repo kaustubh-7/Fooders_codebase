@@ -129,14 +129,12 @@ app.get('/user/profile', async (req, res) => {
 });
 
 app.post('/logout', (req, res) => {
-  res.clearCookie('token', {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "strict",
+      secure: true,  // Ensures it works over HTTPS
+      sameSite: "None",  // Allows cross-origin deletion
+      domain: "fooders-backend-lccf.onrender.com", // Match backend domain
+      path: "/"  // Ensure it's deleted from all routes
   });
-  res.status(200).json({ message: "Logged out successfully" });
-});
-
 
 
 app.use((req, res) => {
