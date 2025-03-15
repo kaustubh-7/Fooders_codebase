@@ -35,6 +35,14 @@ app.use(cors({
   credentials: true // If using cookies/auth
 }));
 
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "https://fooders-codebase.onrender.com");
+  res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Content-Type");
+  res.header("Access-Control-Allow-Credentials", "true");
+  next();
+});
+
 app.use(express.json());
 
 app.options('*', cors()); // Ensure preflight requests are handled properly
