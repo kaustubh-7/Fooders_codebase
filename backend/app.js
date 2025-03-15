@@ -133,7 +133,7 @@ app.post('/logout', (req, res) => {
     httpOnly: true,
     secure: true,  // Required for HTTPS on Render
     sameSite: "None",  // Allows cross-origin deletion
-    domain: "fooders-backend-lccf.onrender.com",
+    domain: "fooders-codebase.onrender.com",
     path: "/"  // Ensure it's deleted from all routes
   });
 
