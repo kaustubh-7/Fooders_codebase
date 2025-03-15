@@ -96,10 +96,11 @@ app.post('/login', async (req, res) => {
       const { email, password } = req.body;
       const token = await User.authenticateUser(email, password);
       res.cookie("token", token, {
-        httpOnly: true,       // Prevents access via JavaScript (more secure)
-        secure: process.env.NODE_ENV === "production",  // Only send over HTTPS in production
-        sameSite: "strict",  // Prevents CSRF attacks
-    });
+        httpOnly: true,       // Prevents client-side access
+        secure: true,         // Must be true for cross-site cookies
+        sameSite: "None",     // Allows cross-origin authentication
+        domain: "fooders-backend-lccf.onrender.com", // Ensure it's set correctly
+      });
       res.status(200).json({ message: "Login successful", token, redirect: "/" });
   } catch (error) {
       res.status(401).json({ message: error.message });
