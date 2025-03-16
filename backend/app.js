@@ -6,7 +6,7 @@ import fs from 'node:fs/promises'; //The fs module in Node.js provides file syst
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser'; //Middleware used to parse incoming JSON requests.
 import express from 'express'; //express: Web framework for Node.js to create APIs and handle HTTP requests.
-import Order from './model/orders.js'; // Import Mongoose Order model
+import Order from './model/orders.js'; 
 import path from 'node:path';
 import User from './model/users.js';
 import cors from 'cors';
