@@ -19,8 +19,6 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/meals" element={<Meals />} />
         </Routes>
-        {/* <Header /> */}
-        {/*<Meals />*/}
         <Cart />
         <Checkout />
       </CartContextProvider>

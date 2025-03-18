@@ -67,20 +67,20 @@ export function CartContextProvider({ children }) {
         dispatchCartAction({
             type: 'ADD_ITEM',
             item: item
-        })
+        });
     }
 
     function removeItem(id){
         dispatchCartAction({
             type: 'REMOVE_ITEM',
             id: id
-        })
+        });
     }
 
     function clearCart(){
         dispatchCartAction({
             type:'CLEAR_CART',
-        })
+        });
     }
 
     const cartContextValue = {

@@ -25,7 +25,7 @@ export default function Header(){
             </div>
             <nav> {/*The <nav> element in HTML is used to define a section of a document intended for navigation links. */}
                 <Button textOnly onClick={handleShowCart} isCart={true} >Cart ({totalCartItems}) </Button>           
-                <Button textOnly onClick={progressCtx.Authenticated ? progressCtx.logoutUser : progressCtx.loginUser} isCart={true}>{progressCtx.Authenticated ? '|  Logout' : '|  Login'}</Button>
+                <Button textOnly onClick={progressCtx.Authenticated ? progressCtx.logoutUser : progressCtx.loginUser} isCart={true}>{progressCtx.Authenticated ? '   Logout' : '   Login'}</Button>
             </nav>
         </header>
     );
